@@ -1,5 +1,5 @@
 # Adrenaline
-Adrenaline can be used to simulate a key press on your keyboard. Seu computador permanecerá ligado, e seus programas continuarão executando.
+Adrenaline can be used to simulate a key press on your keyboard. Your computer stays awake and your programs running.
 
 ## Why do I need this?
 
