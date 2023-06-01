@@ -51,8 +51,11 @@
             this.MainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MakeSoundCheckBox = new System.Windows.Forms.CheckBox();
             this.RandomIntervalCheckBox = new System.Windows.Forms.CheckBox();
-            this.TitleLabel = new System.Windows.Forms.Label();
+            this.StopInputDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TitleTextBox = new System.Windows.Forms.TextBox();
+            this.TitleLabel = new System.Windows.Forms.Label();
+            this.StopAutomaticallyInputLabel = new System.Windows.Forms.Label();
+            this.StopTimer = new System.Windows.Forms.Timer(this.components);
             this.MainNotifyIconContextMenuStrip.SuspendLayout();
             this.MainTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -72,10 +75,10 @@
             // StartStopButton
             // 
             this.StartStopButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.StartStopButton.Location = new System.Drawing.Point(0, 426);
+            this.StartStopButton.Location = new System.Drawing.Point(0, 471);
             this.StartStopButton.Name = "StartStopButton";
             this.StartStopButton.Size = new System.Drawing.Size(259, 50);
-            this.StartStopButton.TabIndex = 5;
+            this.StartStopButton.TabIndex = 15;
             this.StartStopButton.Text = "Start";
             this.StartStopButton.UseVisualStyleBackColor = true;
             this.StartStopButton.Click += new System.EventHandler(this.StartStopButton_Click);
@@ -88,6 +91,7 @@
             // MainNotifyIcon
             // 
             this.MainNotifyIcon.ContextMenuStrip = this.MainNotifyIconContextMenuStrip;
+            this.MainNotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("MainNotifyIcon.Icon")));
             this.MainNotifyIcon.Text = "Adrenaline";
             this.MainNotifyIcon.Visible = true;
             this.MainNotifyIcon.DoubleClick += new System.EventHandler(this.MainNotifyIcon_DoubleClick);
@@ -153,7 +157,7 @@
             this.ShowOptionsCheckBox.Location = new System.Drawing.Point(0, 150);
             this.ShowOptionsCheckBox.Name = "ShowOptionsCheckBox";
             this.ShowOptionsCheckBox.Size = new System.Drawing.Size(259, 24);
-            this.ShowOptionsCheckBox.TabIndex = 6;
+            this.ShowOptionsCheckBox.TabIndex = 1;
             this.ShowOptionsCheckBox.Text = "Show options";
             this.ShowOptionsCheckBox.UseVisualStyleBackColor = true;
             this.ShowOptionsCheckBox.CheckedChanged += new System.EventHandler(this.ShowOptionsCheckBox_CheckedChanged);
@@ -163,10 +167,10 @@
             this.ResetLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
             this.ResetLinkLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ResetLinkLabel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.ResetLinkLabel.Location = new System.Drawing.Point(3, 227);
+            this.ResetLinkLabel.Location = new System.Drawing.Point(3, 272);
             this.ResetLinkLabel.Name = "ResetLinkLabel";
             this.ResetLinkLabel.Size = new System.Drawing.Size(253, 25);
-            this.ResetLinkLabel.TabIndex = 7;
+            this.ResetLinkLabel.TabIndex = 14;
             this.ResetLinkLabel.TabStop = true;
             this.ResetLinkLabel.Text = "(reset)";
             this.ResetLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -180,7 +184,7 @@
             this.KeyInputLabel.Location = new System.Drawing.Point(3, 0);
             this.KeyInputLabel.Name = "KeyInputLabel";
             this.KeyInputLabel.Size = new System.Drawing.Size(253, 20);
-            this.KeyInputLabel.TabIndex = 0;
+            this.KeyInputLabel.TabIndex = 3;
             this.KeyInputLabel.Text = "Key to be pressed:";
             this.KeyInputLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -191,7 +195,7 @@
             this.TimeInputLabel.Location = new System.Drawing.Point(3, 45);
             this.TimeInputLabel.Name = "TimeInputLabel";
             this.TimeInputLabel.Size = new System.Drawing.Size(253, 20);
-            this.TimeInputLabel.TabIndex = 1;
+            this.TimeInputLabel.TabIndex = 5;
             this.TimeInputLabel.Text = "Each (interval):";
             this.TimeInputLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -301,7 +305,7 @@
             this.ComboBoxKeyInput.Location = new System.Drawing.Point(3, 23);
             this.ComboBoxKeyInput.Name = "ComboBoxKeyInput";
             this.ComboBoxKeyInput.Size = new System.Drawing.Size(253, 21);
-            this.ComboBoxKeyInput.TabIndex = 9;
+            this.ComboBoxKeyInput.TabIndex = 4;
             // 
             // TimeInputDateTimePicker
             // 
@@ -314,7 +318,7 @@
             this.TimeInputDateTimePicker.Name = "TimeInputDateTimePicker";
             this.TimeInputDateTimePicker.ShowUpDown = true;
             this.TimeInputDateTimePicker.Size = new System.Drawing.Size(253, 20);
-            this.TimeInputDateTimePicker.TabIndex = 8;
+            this.TimeInputDateTimePicker.TabIndex = 6;
             this.TimeInputDateTimePicker.Value = new System.DateTime(1970, 1, 1, 15, 0, 0, 0);
             // 
             // StayAwakeCheckBox
@@ -323,10 +327,10 @@
             this.StayAwakeCheckBox.Checked = true;
             this.StayAwakeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.StayAwakeCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StayAwakeCheckBox.Location = new System.Drawing.Point(3, 138);
+            this.StayAwakeCheckBox.Location = new System.Drawing.Point(3, 183);
             this.StayAwakeCheckBox.Name = "StayAwakeCheckBox";
             this.StayAwakeCheckBox.Size = new System.Drawing.Size(253, 19);
-            this.StayAwakeCheckBox.TabIndex = 4;
+            this.StayAwakeCheckBox.TabIndex = 11;
             this.StayAwakeCheckBox.Text = "Send signal to keep device awake.";
             this.StayAwakeCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -334,20 +338,24 @@
             // 
             this.MainTableLayoutPanel.ColumnCount = 1;
             this.MainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainTableLayoutPanel.Controls.Add(this.StayAwakeCheckBox, 0, 6);
+            this.MainTableLayoutPanel.Controls.Add(this.StayAwakeCheckBox, 0, 8);
             this.MainTableLayoutPanel.Controls.Add(this.TimeInputDateTimePicker, 0, 3);
             this.MainTableLayoutPanel.Controls.Add(this.ComboBoxKeyInput, 0, 1);
             this.MainTableLayoutPanel.Controls.Add(this.TimeInputLabel, 0, 2);
             this.MainTableLayoutPanel.Controls.Add(this.KeyInputLabel, 0, 0);
-            this.MainTableLayoutPanel.Controls.Add(this.ResetLinkLabel, 0, 10);
-            this.MainTableLayoutPanel.Controls.Add(this.MakeSoundCheckBox, 0, 7);
-            this.MainTableLayoutPanel.Controls.Add(this.RandomIntervalCheckBox, 0, 8);
-            this.MainTableLayoutPanel.Controls.Add(this.TitleLabel, 0, 4);
-            this.MainTableLayoutPanel.Controls.Add(this.TitleTextBox, 0, 5);
+            this.MainTableLayoutPanel.Controls.Add(this.ResetLinkLabel, 0, 12);
+            this.MainTableLayoutPanel.Controls.Add(this.MakeSoundCheckBox, 0, 9);
+            this.MainTableLayoutPanel.Controls.Add(this.RandomIntervalCheckBox, 0, 10);
+            this.MainTableLayoutPanel.Controls.Add(this.StopInputDateTimePicker, 0, 5);
+            this.MainTableLayoutPanel.Controls.Add(this.TitleTextBox, 0, 7);
+            this.MainTableLayoutPanel.Controls.Add(this.TitleLabel, 0, 6);
+            this.MainTableLayoutPanel.Controls.Add(this.StopAutomaticallyInputLabel, 0, 4);
             this.MainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTableLayoutPanel.Location = new System.Drawing.Point(0, 174);
             this.MainTableLayoutPanel.Name = "MainTableLayoutPanel";
-            this.MainTableLayoutPanel.RowCount = 11;
+            this.MainTableLayoutPanel.RowCount = 13;
+            this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -359,16 +367,16 @@
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.MainTableLayoutPanel.Size = new System.Drawing.Size(259, 252);
-            this.MainTableLayoutPanel.TabIndex = 1;
+            this.MainTableLayoutPanel.Size = new System.Drawing.Size(259, 297);
+            this.MainTableLayoutPanel.TabIndex = 2;
             // 
             // MakeSoundCheckBox
             // 
             this.MakeSoundCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MakeSoundCheckBox.Location = new System.Drawing.Point(3, 163);
+            this.MakeSoundCheckBox.Location = new System.Drawing.Point(3, 208);
             this.MakeSoundCheckBox.Name = "MakeSoundCheckBox";
             this.MakeSoundCheckBox.Size = new System.Drawing.Size(253, 19);
-            this.MakeSoundCheckBox.TabIndex = 10;
+            this.MakeSoundCheckBox.TabIndex = 12;
             this.MakeSoundCheckBox.Text = "Make a \"beep\" sound.";
             this.MakeSoundCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -377,39 +385,69 @@
             this.RandomIntervalCheckBox.Checked = true;
             this.RandomIntervalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.RandomIntervalCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RandomIntervalCheckBox.Location = new System.Drawing.Point(3, 188);
+            this.RandomIntervalCheckBox.Location = new System.Drawing.Point(3, 233);
             this.RandomIntervalCheckBox.Name = "RandomIntervalCheckBox";
             this.RandomIntervalCheckBox.Size = new System.Drawing.Size(253, 19);
-            this.RandomIntervalCheckBox.TabIndex = 11;
+            this.RandomIntervalCheckBox.TabIndex = 13;
             this.RandomIntervalCheckBox.Text = "Randomize timer by ±10%.";
             this.RandomIntervalCheckBox.UseVisualStyleBackColor = true;
             // 
-            // TitleLabel
+            // StopInputDateTimePicker
             // 
-            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TitleLabel.Location = new System.Drawing.Point(3, 90);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(253, 20);
-            this.TitleLabel.TabIndex = 12;
-            this.TitleLabel.Text = "Application title:";
-            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.StopInputDateTimePicker.CustomFormat = "H\'h\' mm\'m\' ss\'s\'";
+            this.StopInputDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StopInputDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.StopInputDateTimePicker.Location = new System.Drawing.Point(3, 113);
+            this.StopInputDateTimePicker.MaxDate = new System.DateTime(1970, 1, 1, 15, 0, 0, 0);
+            this.StopInputDateTimePicker.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 1, 0);
+            this.StopInputDateTimePicker.Name = "StopInputDateTimePicker";
+            this.StopInputDateTimePicker.ShowCheckBox = true;
+            this.StopInputDateTimePicker.ShowUpDown = true;
+            this.StopInputDateTimePicker.Size = new System.Drawing.Size(253, 20);
+            this.StopInputDateTimePicker.TabIndex = 8;
+            this.StopInputDateTimePicker.Value = new System.DateTime(1970, 1, 1, 15, 0, 0, 0);
             // 
             // TitleTextBox
             // 
             this.TitleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TitleTextBox.Location = new System.Drawing.Point(3, 113);
+            this.TitleTextBox.Location = new System.Drawing.Point(3, 158);
             this.TitleTextBox.MaxLength = 50;
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(253, 20);
-            this.TitleTextBox.TabIndex = 13;
+            this.TitleTextBox.TabIndex = 10;
             this.TitleTextBox.Text = "Adrenaline";
             this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TitleLabel.Location = new System.Drawing.Point(3, 135);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(253, 20);
+            this.TitleLabel.TabIndex = 9;
+            this.TitleLabel.Text = "Application title:";
+            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // StopAutomaticallyInputLabel
+            // 
+            this.StopAutomaticallyInputLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StopAutomaticallyInputLabel.Location = new System.Drawing.Point(3, 90);
+            this.StopAutomaticallyInputLabel.Name = "StopAutomaticallyInputLabel";
+            this.StopAutomaticallyInputLabel.Size = new System.Drawing.Size(253, 20);
+            this.StopAutomaticallyInputLabel.TabIndex = 7;
+            this.StopAutomaticallyInputLabel.Text = "Stop automatically after:";
+            this.StopAutomaticallyInputLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // StopTimer
+            // 
+            this.StopTimer.Interval = 1000;
+            this.StopTimer.Tick += new System.EventHandler(this.StopTimer_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 476);
+            this.ClientSize = new System.Drawing.Size(259, 521);
             this.Controls.Add(this.MainTableLayoutPanel);
             this.Controls.Add(this.ShowOptionsCheckBox);
             this.Controls.Add(this.StartStopButton);
@@ -422,6 +460,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adrenaline";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainNotifyIconContextMenuStrip.ResumeLayout(false);
             this.MainTableLayoutPanel.ResumeLayout(false);
             this.MainTableLayoutPanel.PerformLayout();
@@ -454,6 +493,9 @@
         private System.Windows.Forms.CheckBox RandomIntervalCheckBox;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.TextBox TitleTextBox;
+        private System.Windows.Forms.DateTimePicker StopInputDateTimePicker;
+        private System.Windows.Forms.Timer StopTimer;
+        private System.Windows.Forms.Label StopAutomaticallyInputLabel;
     }
 }
 

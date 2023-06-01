@@ -117,11 +117,29 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Clique duas vezes no ícone na bandeja do sistema para reabrir o aplicativo. Clique com o botão direito do mouse para ver mais ações..
+        ///   Looks up a localized string similar to Não foi possível simular pressionamento de tecla. Você bloqueou seu dispositivo?.
         /// </summary>
-        internal static string MainForm_MainNotifyIcon_BalloonTipText {
+        internal static string MainForm_MainNotifyIcon_ErrorTipText {
             get {
-                return ResourceManager.GetString("MainForm_MainNotifyIcon_BalloonTipText", resourceCulture);
+                return ResourceManager.GetString("MainForm_MainNotifyIcon_ErrorTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clique duas vezes no ícone na bandeja do sistema para reabrir o aplicativo. Clique com o botão direito do mouse para ver mais ações. Não bloqueie seu dispositivo..
+        /// </summary>
+        internal static string MainForm_MainNotifyIcon_StartTipText {
+            get {
+                return ResourceManager.GetString("MainForm_MainNotifyIcon_StartTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O Adrenaline parou automaticamente..
+        /// </summary>
+        internal static string MainForm_MainNotifyIcon_StopTipText {
+            get {
+                return ResourceManager.GetString("MainForm_MainNotifyIcon_StopTipText", resourceCulture);
             }
         }
         
@@ -194,6 +212,15 @@ namespace Adrenaline.Strings {
         internal static string MainForm_StayAwakeCheckBox {
             get {
                 return ResourceManager.GetString("MainForm_StayAwakeCheckBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parar automaticamente após:.
+        /// </summary>
+        internal static string MainForm_StopAutomaticallyCheckBox {
+            get {
+                return ResourceManager.GetString("MainForm_StopAutomaticallyCheckBox", resourceCulture);
             }
         }
         

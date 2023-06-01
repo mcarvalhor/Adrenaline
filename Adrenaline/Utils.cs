@@ -50,6 +50,9 @@ namespace Adrenaline
                     case "pt":
                         stringsRes = Strings.pt.ResourceManager;
                         break;
+                    case "es":
+                        stringsRes = Strings.es.ResourceManager;
+                        break;
                     case "en":
                     default:
                         stringsRes = Strings.en.ResourceManager;

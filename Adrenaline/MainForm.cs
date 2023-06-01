@@ -13,11 +13,21 @@ namespace Adrenaline
         {
             InitializeComponent();
             this.TitleTextBox.Text = AppTitle;
+            this.MainTimer.Enabled = false;
+            this.StopTimer.Enabled = false;
+            this.TrayNotificationSent = false;
+            this.Rand = new Random();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             this.MainLabel.Text = Utils.GetString("MainForm_MainLabel");
             this.ShowOptionsCheckBox.Text = Utils.GetString("MainForm_ShowOptionsCheckBox");
             this.KeyInputLabel.Text = Utils.GetString("MainForm_KeyInputLabel");
             this.TimeInputLabel.Text = Utils.GetString("MainForm_TimeInputLabel");
             this.TimeInputDateTimePicker.CustomFormat = Utils.GetString("MainForm_TimeInputDateTimePicker");
+            this.StopAutomaticallyInputLabel.Text = Utils.GetString("MainForm_StopAutomaticallyCheckBox");
+            this.StopInputDateTimePicker.CustomFormat = Utils.GetString("MainForm_TimeInputDateTimePicker");
             this.TitleLabel.Text = Utils.GetString("MainForm_TitleLabel");
             this.StayAwakeCheckBox.Text = Utils.GetString("MainForm_StayAwakeCheckBox");
             this.MakeSoundCheckBox.Text = Utils.GetString("MainForm_MakeSoundCheckBox");
@@ -29,13 +39,12 @@ namespace Adrenaline
             this.ExitMainNotifyIconToolStripMenuItem.Text = Utils.GetString("MainForm_ExitMainNotifyIconToolStripMenuItem");
             this.ComboBoxKeyInput.Text = "{BREAK}";
             this.TimeInputDateTimePicker.Value = new DateTime(1970, 1, 1, 0, 1, 0);
+            this.StopInputDateTimePicker.Value = new DateTime(1970, 1, 1, 1, 0, 0);
+            this.StopInputDateTimePicker.Checked = false;
             this.StayAwakeCheckBox.Checked = true;
             this.MakeSoundCheckBox.Checked = false;
             this.RandomIntervalCheckBox.Checked = true;
-            this.MainTimer.Enabled = false;
-            this.TrayNotificationSent = false;
             this.ShowOptionsCheckBox.Checked = false;
-            this.Rand = new Random();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -52,22 +61,37 @@ namespace Adrenaline
         private void UpdateTimerInterval()
         {
             DateTime interval = this.TimeInputDateTimePicker.Value;
+            DateTime stopInterval = this.StopInputDateTimePicker.Value;
             int intervalMs = interval.Hour * 60 * 60 * 1000 + interval.Minute * 60 * 1000 + interval.Second * 1000;
+            int stopIntervalMs = stopInterval.Hour * 60 * 60 * 1000 + stopInterval.Minute * 60 * 1000 + stopInterval.Second * 1000;
             if (this.RandomIntervalCheckBox.Checked)
             {
                 intervalMs = (int)(intervalMs * (0.9 + this.Rand.NextDouble() * 0.2));
             }
             this.MainTimer.Interval = Math.Max(intervalMs, 1000);
+            this.StopTimer.Interval = Math.Max(stopIntervalMs, 1000);
         }
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
-            SendKeys.Send(ComboBoxKeyInput.Text);
+            try
+            {
+                SendKeys.Send(ComboBoxKeyInput.Text);
+            } catch
+            {
+                this.MainNotifyIcon.ShowBalloonTip(10, this.TitleTextBox.Text, Utils.GetString("MainForm_MainNotifyIcon_ErrorTipText"), ToolTipIcon.Warning);
+            }
             if (this.MakeSoundCheckBox.Checked)
             {
                 System.Media.SystemSounds.Beep.Play();
             }
             UpdateTimerInterval();
+        }
+        
+        private void StopTimer_Tick(object sender, EventArgs e)
+        {
+            Stop();
+            this.MainNotifyIcon.ShowBalloonTip(10, this.TitleTextBox.Text, Utils.GetString("MainForm_MainNotifyIcon_StopTipText"), ToolTipIcon.Info);
         }
 
         private void Start()
@@ -76,8 +100,12 @@ namespace Adrenaline
             this.ActivatedMainNotifyIconToolStripMenuItem.Checked = true;
             this.StartStopButton.Text = Utils.GetString("MainForm_StartStopButton_Stop");
             this.StartStopButton.ForeColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.Highlight);
-            UpdateTimerInterval();
             this.MainTimer.Enabled = true;
+            UpdateTimerInterval();
+            if(this.StopInputDateTimePicker.Checked)
+            {
+                this.StopTimer.Enabled = true;
+            }
             if (this.StayAwakeCheckBox.Checked)
             {
                 Utils.SendAwakeSignal(true);
@@ -85,7 +113,7 @@ namespace Adrenaline
             if (!this.TrayNotificationSent)
             {
                 this.Visible = false;
-                this.MainNotifyIcon.ShowBalloonTip(10, this.TitleTextBox.Text, Utils.GetString("MainForm_MainNotifyIcon_BalloonTipText"), ToolTipIcon.Info);
+                this.MainNotifyIcon.ShowBalloonTip(10, this.TitleTextBox.Text, Utils.GetString("MainForm_MainNotifyIcon_StartTipText"), ToolTipIcon.Info);
                 this.TrayNotificationSent = true;
             }
             this.MainNotifyIcon.Icon = Adrenaline.Properties.Resources.logo;
@@ -94,6 +122,7 @@ namespace Adrenaline
         private void Stop()
         {
             this.MainTimer.Enabled = false;
+            this.StopTimer.Enabled = false;
             if (this.StayAwakeCheckBox.Checked)
             {
                 Utils.SendAwakeSignal(false);
@@ -110,7 +139,7 @@ namespace Adrenaline
             this.MainTableLayoutPanel.Visible = this.ShowOptionsCheckBox.Checked;
             if (this.MainTableLayoutPanel.Visible)
             {
-                this.Height = 515;
+                this.Height = 565;
             }
             else
             {
@@ -120,9 +149,11 @@ namespace Adrenaline
 
         private void ResetLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.TitleTextBox.Text = Utils.GetString("MainForm");
             this.ComboBoxKeyInput.Text = "{BREAK}";
             this.TimeInputDateTimePicker.Value = new DateTime(1970, 1, 1, 0, 1, 0);
-            this.TitleTextBox.Text = Utils.GetString("MainForm");
+            this.StopInputDateTimePicker.Value = new DateTime(1970, 1, 1, 1, 0, 0);
+            this.StopInputDateTimePicker.Checked = false;
             this.StayAwakeCheckBox.Checked = true;
             this.MakeSoundCheckBox.Checked = false;
             this.RandomIntervalCheckBox.Checked = true;

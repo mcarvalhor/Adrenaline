@@ -22,14 +22,14 @@ namespace Adrenaline.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class en {
+    internal class es {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal en() {
+        internal es() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Adrenaline.Strings {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Adrenaline.Strings.en", typeof(en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Adrenaline.Strings.es", typeof(es).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,7 +70,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activated.
+        ///   Looks up a localized string similar to Activado.
         /// </summary>
         internal static string MainForm_ActivatedMainNotifyIconToolStripMenuItem {
             get {
@@ -79,7 +79,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quit.
+        ///   Looks up a localized string similar to Salir.
         /// </summary>
         internal static string MainForm_ExitMainNotifyIconToolStripMenuItem {
             get {
@@ -88,7 +88,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Enter a key].
+        ///   Looks up a localized string similar to [Introduce una tecla].
         /// </summary>
         internal static string MainForm_KeyInputButton {
             get {
@@ -97,7 +97,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Key to be pressed:.
+        ///   Looks up a localized string similar to Tecla que se debe presionar:.
         /// </summary>
         internal static string MainForm_KeyInputLabel {
             get {
@@ -106,9 +106,9 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This application will simulate a key press on your keyboard.
+        ///   Looks up a localized string similar to Esta aplicación simulará presionar una tecla en su teclado.
         ///
-        ///Your computer stays awake and your programs running..
+        ///Su computadora se mantiene activa y sus programas en ejecución..
         /// </summary>
         internal static string MainForm_MainLabel {
             get {
@@ -117,7 +117,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Could not simulate key press. Have you locked your device?.
+        ///   Looks up a localized string similar to No se pudo simular la presión de una tecla. ¿Has bloqueado tu dispositivo?.
         /// </summary>
         internal static string MainForm_MainNotifyIcon_ErrorTipText {
             get {
@@ -126,7 +126,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Double-click on this icon to reopen the application. Right-click to see more actions. Do not lock your device..
+        ///   Looks up a localized string similar to Haga doble clic en este ícono para reabrir la aplicación. Haz clic derecho para ver más acciones. No bloquees tu dispositivo..
         /// </summary>
         internal static string MainForm_MainNotifyIcon_StartTipText {
             get {
@@ -135,7 +135,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adrenaline has been automatically stopped..
+        ///   Looks up a localized string similar to La Adrenaline se detuvo automáticamente..
         /// </summary>
         internal static string MainForm_MainNotifyIcon_StopTipText {
             get {
@@ -144,7 +144,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make a &quot;beep&quot; sound..
+        ///   Looks up a localized string similar to Haz un sonido de &quot;bip&quot;..
         /// </summary>
         internal static string MainForm_MakeSoundCheckBox {
             get {
@@ -153,7 +153,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Randomize timer by ±10%..
+        ///   Looks up a localized string similar to Aleatorizar el temporizador en ±10%..
         /// </summary>
         internal static string MainForm_RandomIntervalCheckBox {
             get {
@@ -162,7 +162,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (reset).
+        ///   Looks up a localized string similar to (restaurar).
         /// </summary>
         internal static string MainForm_ResetLinkLabel {
             get {
@@ -171,7 +171,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display options..
+        ///   Looks up a localized string similar to Ver opciones..
         /// </summary>
         internal static string MainForm_ShowOptionsCheckBox {
             get {
@@ -180,7 +180,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show options.
+        ///   Looks up a localized string similar to Mostrar opciones..
         /// </summary>
         internal static string MainForm_ShowOptionsMainNotifyIconToolStripMenuItem {
             get {
@@ -189,7 +189,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start.
+        ///   Looks up a localized string similar to Comenzar.
         /// </summary>
         internal static string MainForm_StartStopButton_Start {
             get {
@@ -198,7 +198,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stop.
+        ///   Looks up a localized string similar to Parar.
         /// </summary>
         internal static string MainForm_StartStopButton_Stop {
             get {
@@ -207,7 +207,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Send signal to keep device awake..
+        ///   Looks up a localized string similar to Enviar señal para mantener el dispositivo activo..
         /// </summary>
         internal static string MainForm_StayAwakeCheckBox {
             get {
@@ -216,7 +216,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stop automatically after:.
+        ///   Looks up a localized string similar to Parar automáticamente después de:.
         /// </summary>
         internal static string MainForm_StopAutomaticallyCheckBox {
             get {
@@ -234,7 +234,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Each (interval):.
+        ///   Looks up a localized string similar to Cada (intervalo):.
         /// </summary>
         internal static string MainForm_TimeInputLabel {
             get {
@@ -243,7 +243,7 @@ namespace Adrenaline.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application title:.
+        ///   Looks up a localized string similar to Título de la aplicación:.
         /// </summary>
         internal static string MainForm_TitleLabel {
             get {

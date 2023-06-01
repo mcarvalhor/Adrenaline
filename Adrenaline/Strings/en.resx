@@ -145,9 +145,17 @@ Your computer stays awake and your programs running.</value>
 
 Your computer stays awake and your programs running.</comment>
   </data>
-  <data name="MainForm_MainNotifyIcon_BalloonTipText" xml:space="preserve">
-    <value>Double-click on this icon to reopen the application. Right-click to see more actions.</value>
-    <comment>Double-click on this icon to reopen the application. Right-click to see more actions.</comment>
+  <data name="MainForm_MainNotifyIcon_ErrorTipText" xml:space="preserve">
+    <value>Could not simulate key press. Have you locked your device?</value>
+    <comment>Could not simulate key press. Have you locked your device?</comment>
+  </data>
+  <data name="MainForm_MainNotifyIcon_StartTipText" xml:space="preserve">
+    <value>Double-click on this icon to reopen the application. Right-click to see more actions. Do not lock your device.</value>
+    <comment>Double-click on this icon to reopen the application. Right-click to see more actions. Do not lock your device.</comment>
+  </data>
+  <data name="MainForm_MainNotifyIcon_StopTipText" xml:space="preserve">
+    <value>Adrenaline has been automatically stopped.</value>
+    <comment>Adrenaline has been automatically stopped.</comment>
   </data>
   <data name="MainForm_MakeSoundCheckBox" xml:space="preserve">
     <value>Make a "beep" sound.</value>
@@ -180,6 +188,10 @@ Your computer stays awake and your programs running.</comment>
   <data name="MainForm_StayAwakeCheckBox" xml:space="preserve">
     <value>Send signal to keep device awake.</value>
     <comment>Send signal to keep device awake.</comment>
+  </data>
+  <data name="MainForm_StopAutomaticallyCheckBox" xml:space="preserve">
+    <value>Stop automatically after:</value>
+    <comment>Stop automatically after:</comment>
   </data>
   <data name="MainForm_TimeInputDateTimePicker" xml:space="preserve">
     <value>H'h' mm'm' ss's'</value>

@@ -122,47 +122,47 @@
     <comment>Adrenaline</comment>
   </data>
   <data name="MainForm_ActivatedMainNotifyIconToolStripMenuItem" xml:space="preserve">
-    <value>Ativado</value>
+    <value>Activado</value>
     <comment>Activated</comment>
   </data>
   <data name="MainForm_ExitMainNotifyIconToolStripMenuItem" xml:space="preserve">
-    <value>Sair</value>
+    <value>Salir</value>
     <comment>Quit</comment>
   </data>
   <data name="MainForm_KeyInputButton" xml:space="preserve">
-    <value>[Entre com uma tecla]</value>
+    <value>[Introduce una tecla]</value>
     <comment>[Enter a key]</comment>
   </data>
   <data name="MainForm_KeyInputLabel" xml:space="preserve">
-    <value>Tecla a ser pressionada:</value>
+    <value>Tecla que se debe presionar:</value>
     <comment>Key to be pressed:</comment>
   </data>
   <data name="MainForm_MainLabel" xml:space="preserve">
-    <value>Esse aplicativo vai simular o pressionamento de uma tecla em seu teclado.
+    <value>Esta aplicación simulará presionar una tecla en su teclado.
 
-Seu computador permanecerá ligado, e seus programas continuarão executando.</value>
+Su computadora se mantiene activa y sus programas en ejecución.</value>
     <comment>This application will simulate a key press on your keyboard.
 
 Your computer stays awake and your programs running.</comment>
   </data>
   <data name="MainForm_MainNotifyIcon_ErrorTipText" xml:space="preserve">
-    <value>Não foi possível simular pressionamento de tecla. Você bloqueou seu dispositivo?</value>
+    <value>No se pudo simular la presión de una tecla. ¿Has bloqueado tu dispositivo?</value>
     <comment>Could not simulate key press. Have you locked your device?</comment>
   </data>
   <data name="MainForm_MainNotifyIcon_StartTipText" xml:space="preserve">
-    <value>Clique duas vezes no ícone na bandeja do sistema para reabrir o aplicativo. Clique com o botão direito do mouse para ver mais ações. Não bloqueie seu dispositivo.</value>
-    <comment>Double-click on this icon to reopen the application. Right-click to see more actions.</comment>
+    <value>Haga doble clic en este ícono para reabrir la aplicación. Haz clic derecho para ver más acciones. No bloquees tu dispositivo.</value>
+    <comment>Double-click on this icon to reopen the application. Right-click to see more actions. Do not lock your device.</comment>
   </data>
   <data name="MainForm_MainNotifyIcon_StopTipText" xml:space="preserve">
-    <value>O Adrenaline parou automaticamente.</value>
+    <value>La Adrenaline se detuvo automáticamente.</value>
     <comment>Adrenaline has been automatically stopped.</comment>
   </data>
   <data name="MainForm_MakeSoundCheckBox" xml:space="preserve">
-    <value>Emitir um som de "beep".</value>
+    <value>Haz un sonido de "bip".</value>
     <comment>Make a "beep" sound.</comment>
   </data>
   <data name="MainForm_RandomIntervalCheckBox" xml:space="preserve">
-    <value>Aleatorizar intervalo em ±10%.</value>
+    <value>Aleatorizar el temporizador en ±10%.</value>
     <comment>Randomize timer by more or less 10%.</comment>
   </data>
   <data name="MainForm_ResetLinkLabel" xml:space="preserve">
@@ -170,15 +170,15 @@ Your computer stays awake and your programs running.</comment>
     <comment>(reset)</comment>
   </data>
   <data name="MainForm_ShowOptionsCheckBox" xml:space="preserve">
-    <value>Exibir opções.</value>
+    <value>Ver opciones.</value>
     <comment>Display options.</comment>
   </data>
   <data name="MainForm_ShowOptionsMainNotifyIconToolStripMenuItem" xml:space="preserve">
-    <value>Mostrar opções</value>
+    <value>Mostrar opciones.</value>
     <comment>Show options</comment>
   </data>
   <data name="MainForm_StartStopButton_Start" xml:space="preserve">
-    <value>Iniciar</value>
+    <value>Comenzar</value>
     <comment>Start</comment>
   </data>
   <data name="MainForm_StartStopButton_Stop" xml:space="preserve">
@@ -186,11 +186,11 @@ Your computer stays awake and your programs running.</comment>
     <comment>Stop</comment>
   </data>
   <data name="MainForm_StayAwakeCheckBox" xml:space="preserve">
-    <value>Enviar sinal para manter dispositivo acordado.</value>
+    <value>Enviar señal para mantener el dispositivo activo.</value>
     <comment>Send signal to keep device awake.</comment>
   </data>
   <data name="MainForm_StopAutomaticallyCheckBox" xml:space="preserve">
-    <value>Parar automaticamente após:</value>
+    <value>Parar automáticamente después de:</value>
     <comment>Stop automatically after:</comment>
   </data>
   <data name="MainForm_TimeInputDateTimePicker" xml:space="preserve">
@@ -198,11 +198,11 @@ Your computer stays awake and your programs running.</comment>
     <comment>This is the format for the Time Picker. For example: H'h' mm'm' ss's'</comment>
   </data>
   <data name="MainForm_TimeInputLabel" xml:space="preserve">
-    <value>A cada (intervalo):</value>
+    <value>Cada (intervalo):</value>
     <comment>Each (interval):</comment>
   </data>
   <data name="MainForm_TitleLabel" xml:space="preserve">
-    <value>Título do aplicativo:</value>
+    <value>Título de la aplicación:</value>
     <comment>Application title:</comment>
   </data>
 </root>
